@@ -1,6 +1,6 @@
 # E-Commerce Project
 
-Consolidating my knowledge with by making a modern e-commerce web application built with Next.js 15 and TypeScript.
+Consolidating my knowledge by making a modern e-commerce web application built with Next.js 15 and TypeScript.
 
 ## Tech Stack
 
