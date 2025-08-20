@@ -1,16 +1,17 @@
 import Link from "next/link";
 
-function Product({ params }: { params: { productId: string } }) {
-    const reviews = ["review1", "review2", "review3"]
+export default async function Product({ params }: { params: Promise<{ productId: string }> }) {
+    const { productId } = await params;
+    const reviews = ["review1", "review2", "review3"];
 
     return (
         <>
-            <h1 className="font-bold uppercase text-blue-500">{params.productId}</h1>
-            <p className="text-black"> details on the {params.productId}</p>
+            <h1 className="text-5xl font-bold mb-4">{productId}</h1>
+            <p className="text-lg"> details on the {productId}</p>
             <ul>
                 {reviews.map((review) => (
                     <li key={review}>
-                        <Link href={`/products/${params.productId}/reviews/${review}`}>{review}</Link>
+                        <Link href={`/products/${productId}/reviews/${review}`} className="">{review}</Link>
                     </li>
                 ))}
             </ul>
@@ -18,4 +19,3 @@ function Product({ params }: { params: { productId: string } }) {
     );
 }
 
-export default Product;

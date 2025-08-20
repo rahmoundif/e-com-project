@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-function Products() {
+export default function Products() {
     const productIds = ["product1", "product2", "product3"]
 
     return (
@@ -20,4 +20,3 @@ function Products() {
     );
 }
 
-export default Products;

@@ -1,12 +1,13 @@
-function CatchAllRoute({ params }: { params: { slug?: string[] } }) {
+export default async function OptionalCatchAllRoute({ params }: { params: Promise<{ slug?: string[] }> }) {
+    const { slug } = await params;
     return (
         <>
             <h1 className="text-5xl bold mb-4">Products</h1>
 
             <p className="text-lg">Segments captured in the URL:</p>
-            {params.slug ? (
+            {slug && slug.length ? (
                 <ul>
-                    {params.slug.map((segment, index) => (
+                    {slug.map((segment, index) => (
                         <li key={index} className="text-blue-500">
                             {segment}
                         </li>
@@ -16,7 +17,5 @@ function CatchAllRoute({ params }: { params: { slug?: string[] } }) {
                 <p>No additional segments provided</p>
             )}
         </>
-    )
+    );
 }
-
-export default CatchAllRoute;
